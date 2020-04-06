@@ -1,0 +1,63 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		/*p{*/
+		/*	background-color: pink;*/
+		/*}*/
+
+		/*设置对应的class，可重复*/
+		/*.line1{*/
+		/*	background-color: pink;*/
+		/*}*/
+
+		/*设置对应的id，唯一的*/
+		/*#line3{*/
+		/*	background-color: pink;*/
+		/*}*/
+
+        /*!*设置组合选择，box下面的p标签*!*/
+		/*.box p{*/
+		/*	background-color: pink;*/
+		/*}*/
+
+		/*设置组合选择，box下面直接子元素的p标签*/
+		/*.box > p{*/
+		/*	background-color: pink;*/
+		/*}*/
+
+		/*!*设置输入框*!*/
+		/*input[name='username']{*/
+		/*	background-color: pink;*/
+		/*}*/
+
+		/*根据类的签名进行过滤*/
+		div.line{
+			background-color: pink;
+		}
+		p.line1{
+			background-color: pink;
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div>
+			<p>第零行数据</p>
+		</div>
+		<p class="line1">第一行数据</p>
+		<p class="line1">第二行数据</p>
+		<div class="line">div中的数据</div>
+		<p id="line3">第三行数据</p>
+	</div>
+	<p>第四行数据</p>
+	<form>
+		<input type="text" name="username">
+		<input type="text" name="password">
+	</form>
+</body>
+</html>
