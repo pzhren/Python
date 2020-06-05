@@ -1,56 +1,84 @@
 <!DOCTYPE html>
+<html lang="zh-CN">
 <html>
 <head>
+    <title>coronavirus-help</title>
     <link rel="stylesheet" type="text/css" href="/static/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body>
 <center><h1>Your Personal Assistant </h1></center>
 <div class="boxed">
     <div>
+        <div class="PA">Personal Assistant</div>
         <div id="chatbox">
-            <img
-                    src="https://user-images.githubusercontent.com/20112458/49326597-773b7280-f57a-11e8-853d-20ed61d18b0d.png"
-                    alt="CANDICE"
-                    style="width:40px;height:40px;margin-left:-10%;margin-top: 20px;"
-            />
-            <h4><span>Hi! I'm your personal  assistant on COVID-19. ❤ You can ask me like this:<br>What is COVID-19?<br>What are the symptoms of COVID-19?<br>Where can I get tested for COVID-19?</span>
-            </h4>
-        </div>
-        <img
-                    src="https://user-images.githubusercontent.com/20112458/49326597-773b7280-f57a-11e8-853d-20ed61d18b0d.png"
-                    alt="CANDICE"
-                    style="width:40px;height:40px;margin-left:92%;margin-top: -18%;"
-            />
-        <div id="userInput">
-            <input id="textInput" type="text" name="msg" placeholder="What is COVID-19?">
-            <input id="buttonInput" type="submit" value="Send">
-
+            <h4><span>Hi! I'm your personal assistant on COVID-19. ❤ You can ask me like this:
+                <div><u><a href="#" onclick="settext(this)">What is COVID-19?</a></u></div>
+                <div><u><a href="#" onclick="settext(this)">What are the symptoms of COVID-19?</a></u></div>
+                <div><u><a href="#" onclick="settext(this)">Where can I get tested for COVID-19?</a></u></div>
+            </span></h4>
         </div>
     </div>
-    <script>
-        function getBotResponse() {
-            var rawText = $("#textInput").val();
-            var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
-            $("#textInput").val("");
-            $("#chatbox").append(userHtml);
-            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-            $.get("/get", {msg: rawText}).done(function (data) {
-                var botHtml = '<p class="botText">' + data + '</p>';
-                $("#chatbox").append(botHtml);
-                document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-            });
-        }
-
-        $("#textInput").keypress(function (e) {
-            if (e.which == 13) {
-                getBotResponse();
-            }
-        });
-        $("#buttonInput").click(function () {
-            getBotResponse();
-        })
-    </script>
 </div>
+
+<div id="userInput">
+    <input id="textInput" type="text" name="msg" placeholder="What is COVID-19?">
+    <input id="buttonInput" type="submit" value="SENT">
+</div>
+<div class="QLinks">
+    <b _ngcontent-iai-c0="">Quick Links :</b>
+    <a href="https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html" target="_blank"
+       _ngcontent-iai-c0="">What to do if you are sick</a>|
+    <a href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/testing.html" target="_blank"
+       _ngcontent-iai-c0="">Coronavirus Self-Checker</a>|
+    <a href="https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd" target="_blank"
+       _ngcontent-iai-c0="">Monitor the global situation </a>|
+    <a href="https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/cases-in-us.html" target="_blank"
+       _ngcontent-iai-c0="">Monitor cases reported in the US </a>|
+    <a href="https://tools.cdc.gov/campaignproxyservice/subscriptions.aspx" target="_blank" _ngcontent-iai-c0="">Sign
+        Up
+        for CDC.gov Email Updates</a>
+</div>
+
+<script>
+    function getBotResponse() {
+        var rawText = $("#textInput").val();
+        var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+        $("#textInput").val("");
+        $("#chatbox").append(userHtml);
+        document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+        $.get("/get", {msg: rawText}).done(function (data) {
+            var botHtml = '<div class="botText">' +
+                '<div style="font-style: italic; font-weight:bold;">' + rawText + '</div>' +
+                data['bot_response'] +
+                '<div style="font-weight: bold;">' + data['RQ'] + '</div>' +
+                '<div>' + '<u>' + '<a href="#" onclick="settext(this)">' +
+                data['q_data_re_top'][0] + '</a>' + '</u>' + '</div>' +
+                '<div>' + '<u>' + '<a href="#" onclick="settext(this)">' +
+                data['q_data_re_top'][1] + '</a>' + '</u>' + '</div>' +
+                '<div>' + '<u>' + '<a href="#" onclick="settext(this)">' +
+                data['q_data_re_top'][2] + '</a>' + '</u>' + '</div>' +
+                '</div>';
+            $("#chatbox").append(botHtml);
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+        });
+    }
+
+
+    function settext(obj) {
+        document.getElementById("textInput").value = obj.innerText;
+        getBotResponse();
+    }
+
+    $("#textInput").keypress(function (e) {
+        if (e.which == 13) {
+            getBotResponse();
+        }
+    });
+
+    $("#buttonInput").click(function () {
+        getBotResponse();
+    });
+
+</script>
 </body>
 </html>

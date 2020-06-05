@@ -1,12 +1,13 @@
 body {
     font-family: Garamond;
 }
+
 /*顶部居中*/
 h1 {
     top: 0;
-    position:fixed;
-    margin-left:-14cm;
-    left:50%;
+    position: fixed;
+    margin-left: -14cm;
+    left: 50%;
 
     color: black;
     margin-bottom: 0;
@@ -17,7 +18,7 @@ h1 {
     width: 70%;
     background-color: white;
     display: inline-block;
-    border-bottom:white 0.1px solid ;
+    border-bottom: white 0.1px solid;
 }
 
 /*h1 {*/
@@ -34,17 +35,27 @@ h3 {
     margin-top: 3px;
     text-align: center;
 }
+.PA{
+    margin-left: 2.6%;
+    margin-top: 20px;
+    color: #565656;
+    font-size: 13px;
+    letter-spacing: normal;
+    font-family: Metropolis,"Avenir Next","Helvetica Neue",Arial,sans-serif;
+}
 h4 {
-    margin-top: -40px;
-    color: white;
+    margin-top: -70px;
+    color: black;
     font-family: monospace;
-    width: 85%;
-    font-size: 17px;
+    font-weight: normal;
+    width: 90%;
+    font-size: 15px;
     text-align: left;
     line-height: 22px;
-    background-color: #4169e1;
     padding: 8px;
     border-radius: 4px;
+    background-color: #d9e8fd;
+    border: 1px solid #bcd9fc;
 }
 
 /*.box {*/
@@ -53,27 +64,34 @@ h4 {
 /*      }*/
 
 .boxed {
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
-            margin-top: 80px;
-            border: 3px solid green;
-        }
+    max-height: 450px;
+    min-height: 400px;
+    overflow: scroll;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 80px;
+    border: 0.1px solid #eee;
+}
 
 #chatbox {
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
-    margin-top: 10px;
+    width: 95%;
+    margin-top: 10%;
 }
 
 #userInput {
+    display: flex;
+    padding: 0.4%;
+    background-color: #eee;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
-    margin-top: 100px;
+    width: 49.2%;
+    margin-top: auto;
     margin-bottom: 10px;
 }
+
 /*#bg{*/
 /*    width: 100%;*/
 /*    height: 100%;*/
@@ -82,49 +100,63 @@ h4 {
 /*    position: absolute;*/
 /*}*/
 #textInput {
-    width: 87%;
-    border-bottom: 3px solid #808080;
+    border: 1px solid #ccc;
+    padding: 3px 10px 2px;
+    border-radius: 20px;
+    width: 89%;
     font-family: monospace;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 #buttonInput {
+    margin-left: 1%;
     font-weight: bold;
     padding: 3px;
     font-family: monospace;
-    font-size: 17px;
+    font-size: 15px;
 }
 
+.QLinks{
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    color: #565656;
+    font-family: Metropolis,"Avenir Next","Helvetica Neue",Arial,sans-serif;
+
+}
+/*用户回复文本*/
 .userText {
     color: white;
     font-family: monospace;
-    font-size: 17px;
-    text-align: right;
-    line-height: 22px;
-}
-
-.userText span {
+    font-size: 15px;
+    width: 60%;
+    margin-left: 38%;
+    text-align: left;
     background-color: #808080;
+    line-height: 22px;
     padding: 8px;
     border-radius: 4px;
 }
 
+/*助手回复文本*/
 .botText {
-    color: white;
+    color: black;
     font-family: monospace;
-    font-size: 17px;
-    width:85%;
+    font-size: 15px;
+    width: 90%;
     text-align: left;
     line-height: 22px;
-    background-color: #4169e1;
+    background-color: #d9e8fd;
+    border: 1px solid #bcd9fc;
     padding: 8px;
     border-radius: 4px;
 }
 
 
 #tidbit {
-    position:absolute;
-    bottom:0;
-    right:0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
     width: 300px;
 }
